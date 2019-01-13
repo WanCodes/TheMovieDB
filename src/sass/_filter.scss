@@ -1,0 +1,47 @@
+.filter {
+    background-color: $color-primary;
+    grid-column: center-start / center-end;
+    padding: 1rem;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    grid-gap: 1rem;
+
+    &__slider {
+        & > .slider_wrapper{
+            width:33%;
+            display:flex;
+            & > span{
+                padding: 0 1rem 0 1rem;
+            }
+
+            @media only screen and (max-width: $bp-medium) {
+                width:50%;
+            }
+            @media only screen and (max-width: $bp-small) {
+                width:100%;
+            }
+        }
+    }
+
+    &__checkboxs{
+        display: grid;
+        grid-template-rows: repeat(1, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+
+        & > .checkbox{
+            & > input[type=checkbox]{
+                cursor: pointer;
+            }
+            & > label{
+                padding-left:1rem;
+                font-size: 1.6rem;
+                color:$color-grey-light-1;
+                cursor: pointer;
+    
+                &:hover{
+                    color:$color-grey-dark-1;
+                }
+            }
+        }
+    }
+}
