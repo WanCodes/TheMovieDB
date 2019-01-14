@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import GenreCheckBoxes from "./GenreCheckBox/GenreCheckBox";
 import MovieVoteSlider from "./MovieVoteSlider/MovieVoteSlider";
 import { CompareValues } from "../../shared/utils";
+import "./MovieFilter.css";
 
 const movieFilter = (props) => {
 

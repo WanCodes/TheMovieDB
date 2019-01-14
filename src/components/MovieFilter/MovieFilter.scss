@@ -1,31 +1,5 @@
-.topbar{
-    grid-column: center-start / center-end;
-    grid-row:1/2;
-    background-color: $color-primary;
-    width: 100%;
-    height: 6rem;
-    position: fixed;
-    top:0px;
-    left:0px;
-    z-index: 998;
-    cursor: pointer;
-
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    grid-template-rows: 5rem;
-    padding:1rem;
-
-    &__title{
-        align-self:center;
-    }
-    &__filter{
-        align-self:center;
-        justify-self: right;
-    }
-    &:hover > &__filter{
-        color:white;
-    }
-}
+@import "../../sass/base";
+@import "../../sass/typography";
 
 .filter {
     background-color: $color-primary;

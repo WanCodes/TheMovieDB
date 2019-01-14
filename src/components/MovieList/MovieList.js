@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ArrayContainsArray, CompareValues } from "../../shared/utils";
+import "./MovieList.css";
 
 import MovieItem from "./MovieItem/MovieItem";
 
