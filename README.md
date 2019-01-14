@@ -16,8 +16,8 @@ Built using create-react-app with the following packages:
 
 To auto compile and watch SASS the following packages was installed "node-sass-chokidar" and "npm-run-all".  The "package.json" file run scripts was also modified to execute the packages.
 
-Some unit testing was added to a few components to test if they rendered correctly when receiving the right props.  The packages used are "enzyme", "enzyme-adapter-react-16" and "react-test-renderer";
+Some unit testing was added to test if the components rendered correctly when receiving the right props.  The packages used are "enzyme", "enzyme-adapter-react-16" and "react-test-renderer";
 
-The "prop-types" package was also added to help validate property types a component receives.
+The "prop-types" package was also added to help validate property types the component receives.
 
 Third party slider component "rc-slider" was used for the vote slider and slider tooltip.
