@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from '../../services/axios';
 
+import TopBar from "../../components/TopBar/TopBar";
 import MovieFilter from "../../components/MovieFilter/MovieFilter";
 import MovieList from "../../components/MovieList/MovieList";
 
@@ -11,9 +12,13 @@ class MoviePage extends Component {
         genres: [],             //Genres from the API
         availableGenres: [],    //Genres from the results {id:1, name:"Action", checked=false}
         checkedGenres: [],       //array of checked genres, example [1, 3, 28]
-        sliderVoteValue: 3
+        sliderVoteValue: 3,
+        filterShow:false
     }
 
+    /*
+        Load Data from API and store in states
+    */
     componentDidMount() {
         axios.getGenres()   //Call the getGenres API
             .then(genres => {
@@ -38,7 +43,10 @@ class MoviePage extends Component {
             .catch(err => console.log(err));
     }
 
-    checkBoxClickHandler = (event) => {
+    /*
+        Handle filtering by genre
+    */
+    checkBoxClickHandler = event => {
         let newCheckedGenres = [];
         let updatedGenres = this.state.availableGenres.map(gen => {
             if ((gen.id === parseInt(event.target.id))) {
@@ -50,15 +58,33 @@ class MoviePage extends Component {
 
         this.setState({ availableGenres: updatedGenres, checkedGenres: newCheckedGenres });
     }
-
-    voteSliderHandler = (value) => {
+    /*
+        Handle filtering by votes using slider
+    */
+    voteSliderHandler = value => {
         this.setState({ sliderVoteValue: parseFloat(value) });
     }
+    /*
+        Handle filtering by votes using slider
+    */
+    showFilterHandler = () =>{
+        this.setState( ( prevState ) => {
+            return { filterShow: !prevState.filterShow };
+        });
+    }
+    hideFilterHandler = () => {
+        this.setState({filterShow:false});
+    }
 
+    
     render() {
         return (
             <>
+                <TopBar showFilter={this.showFilterHandler}/>
+
                 <MovieFilter 
+                    showFilter={this.state.filterShow}
+                    hideFilterHandler={this.hideFilterHandler}
                     availableGenres={this.state.availableGenres}
                     checkBoxClickHandler={this.checkBoxClickHandler}
                     sliderVoteValue={this.state.sliderVoteValue}

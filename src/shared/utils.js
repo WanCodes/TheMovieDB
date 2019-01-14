@@ -1,14 +1,20 @@
+
+/*
+    Method for checking if 1 array matches all objects of another array
+*/
 export const ArrayContainsArray = ( superset, subset ) => {
     if (0 === subset.length) {
         return false;
       }
-      return subset.every(function (value) {
+      return subset.every(value => {
         return (superset.indexOf(value) >= 0);
       });
 }
-
+/*
+    Methos to sort object array
+*/
 export const CompareValues = (key, order='asc') => {
-    return function(a, b) {
+    return (a, b) => {
       if(!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
         // property doesn't exist on either object
         return 0;

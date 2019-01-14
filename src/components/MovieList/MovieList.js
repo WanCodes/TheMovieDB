@@ -9,11 +9,13 @@ const movieList = (props) => {
     if (props.movies) {
 
         let filteredResults = props.movies;
+
         if (props.filterGenres.length > 0) {
             filteredResults = props.movies.filter(item => {
                 return ArrayContainsArray(item.genre_ids, props.filterGenres);
             });
         }
+        if(props.filterVote)
         filteredResults = filteredResults.filter(item => item.vote_average >= props.filterVote);
 
         filteredResults.sort(CompareValues('popularity', 'desc')); //sort by most popular first
@@ -22,7 +24,7 @@ const movieList = (props) => {
                 <MovieItem 
                 key={result.id}
                 title={result.title}
-                imageURL={"https://image.tmdb.org/t/p/w500/" + result.poster_path}
+                imageURL={"https://image.tmdb.org/t/p/w500" + result.poster_path}
                 genres={result.genres}
                 />
         );
@@ -35,7 +37,7 @@ const movieList = (props) => {
 }
 
 movieList.propTypes = {
-    movies: PropTypes.array.isRequired,
+    movies: PropTypes.array,
     filterGenres: PropTypes.array,
     filterVote: PropTypes.number
 }

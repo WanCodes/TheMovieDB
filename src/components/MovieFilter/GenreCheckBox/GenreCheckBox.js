@@ -11,7 +11,7 @@ const genreCheckBox = (props) => (
             id={props.id}
         />
 
-        <label className="filter__label" htmlFor={props.id}>{props.label}</label>
+        <label className={"filter__label " + (props.checked?"checked":null)} htmlFor={props.id}>{props.label}</label>
     </div>
 );
 

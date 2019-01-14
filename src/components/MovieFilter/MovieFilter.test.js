@@ -20,4 +20,6 @@ describe('<MovieFilter />', () => {
         wrapper.setProps({availableGenres: [{id:28, name:"Action", checked:false}]});
         expect(wrapper.find(GenreCheckBox)).toHaveLength(1);
     });
+    
+
 });

@@ -20,10 +20,15 @@ const movieFilter = (props) => {
             />
         })
     }
+    console.log(props.showFilter);
+    let attachedClasses = ["filter", "filter_close"];
+    if (props.showFilter) {
+        attachedClasses = ["filter", "filter_open"];
+    }
 
     return (
-        <div className="filter">
-            <h1>Filter</h1>
+        <div className={attachedClasses.join(' ')}>
+            <h1>Movie Filter</h1>
             <h2>Movies voted {props.sliderVoteValue}+</h2>
             <MovieVoteSlider sliderVoteValue={props.sliderVoteValue} onSlide={props.onSlide} />
 
@@ -32,7 +37,7 @@ const movieFilter = (props) => {
             
                 {genreCheckBoxes}
             </div>
-            
+            <div className="filter_close_btn" onClick={props.hideFilterHandler}><h1>&#8679;</h1></div>
         </div>
     );
 }
@@ -42,6 +47,8 @@ movieFilter.propTypes = {
     checkBoxClickHandler: PropTypes.func,
     sliderVoteValue: PropTypes.number,
     onSlide: PropTypes.func,
+    showFilter: PropTypes.bool,
+    hideFilterHandler: PropTypes.func
 }
 
 export default movieFilter;

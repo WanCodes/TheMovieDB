@@ -2,6 +2,10 @@ import axios from 'axios';
 
 export const baseUrl = "https://api.themoviedb.org";
 
+/*
+    Use axios plugin to manage API calls
+*/
+
 export default {
     getNowPlaying: () =>
         axios
