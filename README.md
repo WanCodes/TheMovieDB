@@ -1,23 +1,60 @@
-# The Movie DB challenge
+# The Movie DB Challenge
+
+## Overview
+
+This is a small React application built as a coding challenge using data from **The Movie Database (TMDB)** API.  
+It was bootstrapped with `create-react-app` and enhanced with SASS support, a rating slider, and basic component tests.
+
+## Prerequisites
+
+- **Node.js & npm** installed on your machine.
+- A **TMDB API key** which you can generate from your TMDB account.
 
 ## Getting Started
 
-Run "npm install" to download all the node packages.
+1. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-Create a file on the root directory and name it ".env.development", add the follow text "REACT_APP_DEV_API_KEY=api-key-here" and replace "api-key-here" with you TMDB API key.
+2. **Configure environment**
+   - In the project root, create a file named `.env.development`.
+   - Add the following line, replacing the placeholder with your TMDB API key:
+     ```bash
+     REACT_APP_DEV_API_KEY=your-tmdb-api-key-here
+     ```
 
-Run "npm start" will automatically run the application on http://localhost:3000/
+3. **Run the app**
+   ```bash
+   npm start
+   ```
+   This will start the development server and open the app at `http://localhost:3000/`.
 
-Run "npm test" will launch the test runner in the interactive watch mode.
+4. **Run tests**
+   ```bash
+   npm test
+   ```
+   This launches the test runner in interactive watch mode.
 
-## About the project
+## Available Scripts
 
-Built using create-react-app with the following packages:
+The following npm scripts are defined in `package.json`:
 
-To auto compile and watch SASS the following packages was installed "node-sass-chokidar" and "npm-run-all".  The "package.json" file run scripts was also modified to execute the packages.
+- **`npm start`**: Builds SASS, watches for SASS changes, and starts the CRA dev server.
+- **`npm run build`**: Builds SASS and creates a production build of the app.
+- **`npm test`**: Runs the test suite using `react-scripts test`.
+- **`npm run eject`**: Ejects from `create-react-app` (irreversible).
 
-Some unit testing was added to test if the components rendered correctly when receiving the right props.  The packages used are "enzyme", "enzyme-adapter-react-16" and "react-test-renderer";
+## Tech Stack & Libraries
 
-The "prop-types" package was also added to help validate property types the component receives.
+- **React 16** with `create-react-app`.
+- **SASS support** via `node-sass-chokidar`, orchestrated with `npm-run-all` for watching and compiling styles.
+- **HTTP client**: `axios` for calling the TMDB API.
+- **Component testing**: `enzyme`, `enzyme-adapter-react-16`, and `react-test-renderer` to verify components render correctly with given props.
+- **Prop validation**: `prop-types` to validate component props at runtime.
+- **UI controls**: `rc-slider` for the vote slider and tooltip.
 
-Third party slider component "rc-slider" was used for the vote slider and slider tooltip.
+## Notes
+
+- Environment variables prefixed with `REACT_APP_` are exposed to the React app at build time.  
+- For non-development environments, you can create corresponding `.env` files (for example `.env.production`) following the same pattern as `.env.development`.
